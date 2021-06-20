@@ -1,7 +1,14 @@
-Quasar App Extension capacitor-ios-smooth-keyboard-popup
+Quasar App Extension capacitor-smooth-keyboard-popup
 ===
 
 Quasar plugin that fixes apps jittery behaviour while toggling the iOS Keyboard
+<p align="center">
+  <img src="https://img.shields.io/maintenance/yes/2021?style=flat-square" />
+  <a href="https://www.npmjs.com/package/@bazumax/quasar-app-extension-capacitor-smooth-keyboard-popup"><img src="https://img.shields.io/npm/l/@bazumax/quasar-app-extension-capacitor-smooth-keyboard-popup?style=flat-square" /></a>
+<br>
+  <a href="https://www.npmjs.com/package/@bazumax/quasar-app-extension-capacitor-smooth-keyboard-popup"><img src="https://img.shields.io/npm/dw/@bazumax/quasar-app-extension-capacitor-smooth-keyboard-popup?style=flat-square" /></a>
+  <a href="https://www.npmjs.com/package/@bazumax/quasar-app-extension-capacitor-smooth-keyboard-popup"><img src="https://img.shields.io/npm/v/@bazumax/quasar-app-extension-capacitor-smooth-keyboard-popup?style=flat-square" /></a>
+</p>
 
 | Before  | After |
 | ------------- | ------------- |
@@ -9,7 +16,7 @@ Quasar plugin that fixes apps jittery behaviour while toggling the iOS Keyboard
 
 # Install
 ```bash
-quasar ext add capacitor-smooth-keyboard-popup
+quasar ext add @bazumax/capacitor-smooth-keyboard-popup
 ```
 Quasar CLI will retrieve it from the NPM registry and install the extension to your project.
 
@@ -19,7 +26,7 @@ Quasar CLI will retrieve it from the NPM registry and install the extension to y
 
 # Uninstall
 ```bash
-quasar ext remove capacitor-smooth-keyboard-popup
+quasar ext remove @bazumax/capacitor-smooth-keyboard-popup
 ```
 
 # Info
