@@ -32,15 +32,21 @@ export default () => {
     Keyboard.addListener('keyboardWillShow', info => {
         checkElementInViewport = elementInViewport(info.keyboardHeight)
         const pageContainer = document.querySelector('.q-page-container');
-        defaultPadding = pageContainer.style.paddingBottom
-        pageContainer.style.paddingBottom = info.keyboardHeight + 'px';
+        if (pageContainer) {
+            defaultPadding = pageContainer.style.paddingBottom
+            pageContainer.style.paddingBottom = info.keyboardHeight + 'px';
+        }
         activeElement = document.activeElement
         if (!checkElementInViewport(activeElement)) {
             document.activeElement.scrollIntoView({behavior: 'smooth'})
         }
     });
     Keyboard.addListener('keyboardWillHide', () => {
-        document.querySelector('.q-page-container').style.paddingBottom = defaultPadding || '0px';
+        const pageContainer = document.querySelector('.q-page-container');
+        if (pageContainer) {
+            pageContainer.style.paddingBottom = defaultPadding || '0px';
+        }
+
         if (!checkElementInViewport(activeElement)) {
             (activeElement || document.activeElement).scrollIntoView({behavior: 'smooth'})
         }

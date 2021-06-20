@@ -6,9 +6,11 @@ export default () => {
     let footer = null;
     Keyboard.addListener('keyboardWillShow', info => {
         footer = document.querySelector('.q-footer');
-        footer.style.transition = 'opacity .4s';
-        footer.style.opacity = '0'
-        console.log(footer.style.display)
+        if (footer) {
+            footer.style.transition = 'opacity .4s';
+            footer.style.opacity = '0'
+        }
+
         activeElement = document.activeElement
         document.activeElement.scrollIntoView({behavior: 'smooth'})
     });
