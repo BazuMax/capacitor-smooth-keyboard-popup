@@ -9,7 +9,7 @@ Quasar plugin that fixes apps jittery behaviour while toggling the iOS Keyboard
 
 # Install
 ```bash
-quasar ext add capacitor-ios-smooth-keyboard-popup
+quasar ext add capacitor-smooth-keyboard-popup
 ```
 Quasar CLI will retrieve it from the NPM registry and install the extension to your project.
 
@@ -19,7 +19,7 @@ Quasar CLI will retrieve it from the NPM registry and install the extension to y
 
 # Uninstall
 ```bash
-quasar ext remove capacitor-ios-smooth-keyboard-popup
+quasar ext remove capacitor-smooth-keyboard-popup
 ```
 
 # Info

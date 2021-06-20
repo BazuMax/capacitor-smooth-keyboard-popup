@@ -10,10 +10,10 @@ const { log, warn, fatal } = require('@quasar/app/lib/helpers/logger')
 
 const extendConf = (api) => (conf) => {
     // make sure my-ext boot file is registered
-    conf.boot.push(`~@bazumax/quasar-app-extension-capacitor-ios-smooth-keyboard-popup/src/boot/capacitor-smooth-keyboard-${api.ctx.targetName}.js`)
+    conf.boot.push(`~@bazumax/quasar-app-extension-capacitor-smooth-keyboard-popup/src/boot/capacitor-smooth-keyboard-${api.ctx.targetName}.js`)
 
     // make sure boot & component files get transpiled
-    conf.build.transpileDependencies.push(/@bazumax\/quasar-app-extension-capacitor-ios-smooth-keyboard-popup[\\/]src/)
+    conf.build.transpileDependencies.push(/@bazumax\/quasar-app-extension-capacitor-smooth-keyboard-popup[\\/]src/)
 }
 
 
@@ -22,5 +22,11 @@ module.exports = function (api) {
         if (['ios', 'android'].includes(api.ctx.targetName)) {
             api.extendQuasarConf(extendConf(api))
         }
+        else {
+            fatal("KEK")
+        }
+    }
+    else {
+        fatal("KEK2")
     }
 }
