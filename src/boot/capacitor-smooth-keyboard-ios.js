@@ -24,6 +24,18 @@ const elementInViewport = (keyboardHeight) => (el) => {
     );
 }
 
+const isPaneDescendant = (el) => {
+    const pane = document.querySelector('.cupertino-pane')
+    let node = el.parentNode;
+    while (node != null) {
+        if (node == pane) {
+            return true;
+        }
+        node = node.parentNode;
+    }
+    return false;
+}
+
 export default () => {
     smoothscroll.polyfill()
     let checkElementInViewport = null
@@ -31,22 +43,24 @@ export default () => {
 
     Keyboard.addListener('keyboardWillShow', info => {
         checkElementInViewport = elementInViewport(info.keyboardHeight)
-        const pageContainer = document.querySelector('.q-page-container');
+        const pageContainer = document.querySelector('#q-app');
         if (pageContainer) {
             defaultPadding = pageContainer.style.paddingBottom
             pageContainer.style.paddingBottom = info.keyboardHeight + 'px';
         }
         activeElement = document.activeElement
+        if (isPaneDescendant(activeElement)) return
         if (!checkElementInViewport(activeElement)) {
             document.activeElement.scrollIntoView({behavior: 'smooth'})
         }
     });
     Keyboard.addListener('keyboardWillHide', () => {
-        const pageContainer = document.querySelector('.q-page-container');
+        const pageContainer = document.querySelector('#q-app');
         if (pageContainer) {
-            pageContainer.style.paddingBottom = defaultPadding || '0px';
+            pageContainer.style.paddingBottom = '0px';
         }
 
+        if (isPaneDescendant(activeElement)) return
         if (!checkElementInViewport(activeElement)) {
             (activeElement || document.activeElement).scrollIntoView({behavior: 'smooth'})
         }
