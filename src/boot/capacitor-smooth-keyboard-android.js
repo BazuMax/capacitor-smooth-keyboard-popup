@@ -2,6 +2,18 @@ import { Keyboard } from '@capacitor/keyboard';
 
 let activeElement = null;
 
+const isPaneDescendant = (el) => {
+    const pane = document.querySelector('.cupertino-pane')
+    let node = el.parentNode;
+    while (node != null) {
+        if (node == pane) {
+            return true;
+        }
+        node = node.parentNode;
+    }
+    return false;
+}
+
 export default () => {
     let footer = null;
     Keyboard.addListener('keyboardWillShow', info => {
@@ -12,6 +24,7 @@ export default () => {
         }
 
         activeElement = document.activeElement
+        if (isPaneDescendant(activeElement)) return
         document.activeElement.scrollIntoView({behavior: 'smooth'})
     });
     Keyboard.addListener('keyboardWillHide', () => {
@@ -20,6 +33,7 @@ export default () => {
             console.log(footer.style.display)
         }
 
+        if (isPaneDescendant(activeElement)) return
         (activeElement || document.activeElement).scrollIntoView({behavior: 'smooth'})
     });
 }
