@@ -1,6 +1,6 @@
 {
   "name": "@bazumax/quasar-app-extension-capacitor-smooth-keyboard-popup",
-  "version": "1.0.26",
+  "version": "1.0.27",
   "description": "Quasar plugin that fixes apps jittery behaviour while toggling the iOS Keyboard",
   "author": "BazuMax Team",
   "license": "MIT",
