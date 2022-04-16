@@ -33,7 +33,7 @@ function patchCapacitorConfig(api) {
 }
 
 module.exports = function (api) {
-    if (!checkCapacitorPackageVersion(api,'@capacitor/core', '^3.0.0')) {
+    if (!checkCapacitorPackageVersion(api,'@capacitor/core', '>= 3.0.0 < 4.0.0')) {
         fatal('🌩 This plugin only works with capacitor 3.\n' +
             'Please, check upgrade guide https://capacitorjs.com/docs/updating/3-0');
     }

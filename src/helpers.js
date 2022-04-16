@@ -5,7 +5,7 @@ const fs = require('fs')
 
 
 function checkCapacitorPackageVersion(api, packageName, expr) {
-    return semver.satisfies(require(api.resolve.capacitor('package.json')).dependencies[packageName], expr);
+    return semver.satisfies(semver.coerce(require(api.resolve.capacitor('package.json')).dependencies[packageName]), expr);
 }
 
 function existsCapacitorPackage(api, packageName) {
